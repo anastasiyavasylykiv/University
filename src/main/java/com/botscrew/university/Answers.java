@@ -14,12 +14,12 @@ public class Answers {
     public String findHeadOfDepartment(String departmentName) throws SQLException, NullPointerException {
         String head = "";
         DepartmentService departmentService = new DepartmentService();
-            Department department = departmentService.getDepartmentByName(departmentName);
-            if (department != null) {
-                head = department.getHead().getName() + " " + department.getHead().getSurname();
-            } else {
-                System.out.println("There is no head of the department.");
-            }
+        Department department = departmentService.getDepartmentByName(departmentName);
+        if (department != null) {
+            head = department.getHead().getName() + " " + department.getHead().getSurname();
+        } else {
+            System.out.println("There is no head of the department.");
+        }
 
         return head;
     }
@@ -30,7 +30,8 @@ public class Answers {
         try {
 
             List<Lector> lectors = lectorService.searchNameByTemplate(template);
-
+            if (lectors.size() == 0)
+                System.out.println("Global search: no results");
             for (Lector l : lectors) {
                 strings.add(l.getName() + " " + l.getSurname());
             }

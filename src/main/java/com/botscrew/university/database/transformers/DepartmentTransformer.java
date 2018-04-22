@@ -24,8 +24,6 @@ public class DepartmentTransformer {
             result.setName(rs.getString("name"));
             int lectorId = rs.getInt("id_head");
            result.setHead(lectorService.getLectorById(lectorId));
-//            result.setHead(lectorService.getAllLectors().stream().filter(
-//                    x -> x.getId() == lectorId).collect(Collectors.toList()).get(0));
         }
 
         return result;

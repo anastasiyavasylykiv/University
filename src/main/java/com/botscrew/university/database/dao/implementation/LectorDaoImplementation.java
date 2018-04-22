@@ -75,7 +75,7 @@ public class LectorDaoImplementation implements LectorDAO {
 
         try (PreparedStatement statement = connection.prepareStatement(SEARCH_NAME_BY_TEMPLATE + "'%" + template + "%'" +SEARCH_SURNAME_BY_TEMPLATE+"'%" + template + "%'")) {
             ResultSet resultSet = statement.executeQuery();
-            while (!resultSet.isLast()) {
+            while (resultSet.next()) {
                 lector.add(new LectorTransformer().fromResultsSetToObject(resultSet));
 
             }

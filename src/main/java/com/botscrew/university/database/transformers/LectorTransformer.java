@@ -24,9 +24,7 @@ public class LectorTransformer {
             result.setSurname(rs.getString("second_name"));
             result.setSalary(rs.getInt("salary"));
             int degreeId = rs.getInt("degree_id");
-         //  result.setDegree(degreeService.getDegreeById(degreeId));
-            result.setDegree(degreeService.getAllDegree().stream().filter(
-                    x -> x.getId() == degreeId).collect(Collectors.toList()).get(0));
+            result.setDegree(degreeService.getDegreeById(degreeId));
         }
 
         return result;
