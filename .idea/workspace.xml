@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25e03a36-4cdf-41de-a0f1-e480834ad223" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/botscrew/university/Answers.java" afterPath="$PROJECT_DIR$/src/main/java/com/botscrew/university/Answers.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/botscrew/university/App.java" afterPath="$PROJECT_DIR$/src/main/java/com/botscrew/university/App.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/botscrew/university/ReadQueation.java" afterPath="$PROJECT_DIR$/src/main/java/com/botscrew/university/Questions.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/botscrew/university/database/dao/DegreeDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/botscrew/university/database/dao/DegreeDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/botscrew/university/database/dao/implementation/DegreeDaoImplementation.java" afterPath="$PROJECT_DIR$/src/main/java/com/botscrew/university/database/dao/implementation/DegreeDaoImplementation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/botscrew/university/database/service/DegreeService.java" afterPath="$PROJECT_DIR$/src/main/java/com/botscrew/university/database/service/DegreeService.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/botscrew/university/Answers.class" afterPath="$PROJECT_DIR$/target/classes/com/botscrew/university/Answers.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/botscrew/university/App.class" afterPath="$PROJECT_DIR$/target/classes/com/botscrew/university/App.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/botscrew/university/ReadQueation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/botscrew/university/database/dao/DegreeDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/botscrew/university/database/dao/DegreeDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/botscrew/university/database/dao/implementation/DegreeDaoImplementation.class" afterPath="$PROJECT_DIR$/target/classes/com/botscrew/university/database/dao/implementation/DegreeDaoImplementation.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/botscrew/university/database/service/DegreeService.class" afterPath="$PROJECT_DIR$/target/classes/com/botscrew/university/database/service/DegreeService.class" />
+      <change beforePath="$PROJECT_DIR$/university.sql" afterPath="$PROJECT_DIR$/university.sql" />
+      <change beforePath="$PROJECT_DIR$/university_degree.sql" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/university_department.sql" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/university_lector.sql" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/university_lector_department.sql" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -50,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/botscrew/university/Answers.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="124">
-              <caret line="97" column="21" lean-forward="false" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="21" />
+              <caret line="97" column="2" lean-forward="false" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1030,7 +1022,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/botscrew/university/Answers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
-          <caret line="97" column="21" lean-forward="false" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="21" />
+          <caret line="97" column="2" lean-forward="false" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
