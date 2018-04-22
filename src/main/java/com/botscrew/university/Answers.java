@@ -13,17 +13,13 @@ import java.util.stream.Collectors;
 public class Answers {
     public String findHeadOfDepartment(String departmentName) throws SQLException, NullPointerException {
         String head = "";
-        try {
-            DepartmentService departmentService = new DepartmentService();
+        DepartmentService departmentService = new DepartmentService();
             Department department = departmentService.getDepartmentByName(departmentName);
             if (department != null) {
                 head = department.getHead().getName() + " " + department.getHead().getSurname();
             } else {
                 System.out.println("There is no head of the department.");
             }
-        } catch (SQLException e) {
-            throw e;
-        }
 
         return head;
     }
@@ -31,27 +27,39 @@ public class Answers {
     public void globalSearchByTemplate(String template) throws SQLException {
         List<String> strings = new ArrayList();
         LectorService lectorService = new LectorService();
-        List<Lector> lectors = lectorService.searchNameByTemplate(template);
-        for (Lector l : lectors) {
-            strings.add(l.getName() + " " + l.getSurname());
-        }
-        strings = strings.stream().distinct().collect(Collectors.toList());
+        try {
 
+            List<Lector> lectors = lectorService.searchNameByTemplate(template);
+
+            for (Lector l : lectors) {
+                strings.add(l.getName() + " " + l.getSurname());
+            }
+            strings = strings.stream().distinct().collect(Collectors.toList());
+        } catch (SQLException e) {
+            throw new SQLException("Global search: no results");
+        }
         System.out.println(strings.toString());
     }
 
     public int countOfEmployee(String departmentName) throws SQLException, NullPointerException {
         LectorService lectorService = new LectorService();
         DepartmentService departmentService = new DepartmentService();
-        int count = (lectorService.getLectorsOfDepartment(departmentService.getDepartmentByName(departmentName).getId())).size();
-        return count;
+        Department departmentByName = departmentService.getDepartmentByName(departmentName);
+        if (departmentByName == null) {
+            throw new SQLException("No department with this name");
+        }
+        return (lectorService.getLectorsOfDepartment(departmentByName.getId())).size();
     }
 
     public int averageSalaryForDepartment(String departmentName) throws SQLException, NullPointerException {
         int averageSalary = 0;
         LectorService lectorService = new LectorService();
         DepartmentService departmentService = new DepartmentService();
-        List<Lector> lectorsOfDepartment = lectorService.getLectorsOfDepartment(departmentService.getDepartmentByName(departmentName).getId());
+        Department departmentByName = departmentService.getDepartmentByName(departmentName);
+        if (departmentByName == null) {
+            throw new SQLException("No department with this name");
+        }
+        List<Lector> lectorsOfDepartment = lectorService.getLectorsOfDepartment(departmentByName.getId());
         for (Lector l : lectorsOfDepartment
                 ) {
             averageSalary += l.getSalary();
@@ -60,21 +68,25 @@ public class Answers {
     }
 
     public void showDepartmentStatistic(String departmentName) throws SQLException, NullPointerException {
-        int assistans = 0, associateProfessors = 0, professors = 0;
+        int assistants = 0, associateProfessors = 0, professors = 0;
         LectorService lectorService = new LectorService();
         DepartmentService departmentService = new DepartmentService();
-        List<Lector> lectorsOfDepartment = lectorService.getLectorsOfDepartment(departmentService.getDepartmentByName(departmentName).getId());
+        Department departmentByName = departmentService.getDepartmentByName(departmentName);
+        if (departmentByName == null) {
+            throw new SQLException("No department with this name");
+        }
+        List<Lector> lectorsOfDepartment = lectorService.getLectorsOfDepartment(departmentByName.getId());
         for (Lector l : lectorsOfDepartment
                 ) {
-            if (l.getDegree().getId() == 1) {
-                assistans++;
-            } else if (l.getDegree().getId() == 2) {
+            if (l.getDegree().getName().equals("assistant")) {
+                assistants++;
+            } else if (l.getDegree().getName().equals("associate professor")) {
                 associateProfessors++;
-            } else if (l.getDegree().getId() == 3) {
+            } else if (l.getDegree().getName().equals("professor")) {
                 professors++;
             }
         }
-        System.out.println("assistans - " + assistans);
+        System.out.println("assistants - " + assistants);
         System.out.println("associate professors - " + associateProfessors);
         System.out.println("professors - " + professors);
     }

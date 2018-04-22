@@ -11,4 +11,5 @@ public interface DegreeDAO {
     void updateById(int id, Degree newDegree) throws SQLException;
     void deleteById(int id) throws SQLException;
     Degree getById(int id) throws SQLException;
+    Degree getByName(String name) throws SQLException;
 }

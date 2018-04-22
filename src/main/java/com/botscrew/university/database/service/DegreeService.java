@@ -25,4 +25,7 @@ public class DegreeService {
     public Degree getDegreeById(int id) throws SQLException{
        return  new DegreeDaoImplementation().getById(id);
     }
+    public Degree getDegreeByName(String name) throws SQLException{
+        return  new DegreeDaoImplementation().getByName(name);
+    }
 }

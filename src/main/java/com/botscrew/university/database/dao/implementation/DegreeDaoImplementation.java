@@ -21,6 +21,7 @@ public class DegreeDaoImplementation implements DegreeDAO{
     private final String DELETE_DEGREE_BY_ID = "DELETE FROM degree WHERE id_degree = ?";
     private final String GET_ALL_DEGREE = "SELECT * FROM degree";
     private final String GET_DEGREE = "SELECT * FROM degree WHERE id_degree= ? ";
+    private final String GET_DEGREE_BY_NAME = "SELECT * FROM degree WHERE name = ? ";
 
     public void create(Degree d) throws SQLException {
         Connection connection = ConnectionManager.getConnection();
@@ -33,13 +34,24 @@ public class DegreeDaoImplementation implements DegreeDAO{
         }
     }
 
-
     public Degree getById(int id) throws SQLException {
         Degree degree;
         Connection connection = ConnectionManager.getConnection();
 
         try (PreparedStatement statement = connection.prepareStatement(GET_DEGREE)) {
             statement.setInt(1,id);
+            ResultSet resultSet = statement.executeQuery();
+            degree=new DegreeTransformer().fromResultsSetToObject(resultSet);
+
+        }
+        return degree;
+    }
+    public Degree getByName(String name) throws SQLException {
+        Degree degree;
+        Connection connection = ConnectionManager.getConnection();
+
+        try (PreparedStatement statement = connection.prepareStatement(GET_DEGREE_BY_NAME)) {
+            statement.setString(1,name);
             ResultSet resultSet = statement.executeQuery();
             degree=new DegreeTransformer().fromResultsSetToObject(resultSet);
 
